@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fiches pratiques – Vcare</title>
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- ✅ Permet aux fetch/chemins relatifs de fonctionner depuis GitHub Pages -->
-  <base href="https://hystvblod.github.io/Vcare11/">
 </head>
 <body class="page-fiches">
   <header>
@@ -24,18 +21,25 @@
       <h2>🧠 Comprendre et gérer ses émotions</h2>
       <p>Choisissez un sujet pour lire des conseils et explications utiles.</p>
 
-      <!-- MENU déroulant attendu par le JS -->
       <label for="fiche-select">Choisir un sujet :</label>
       <select id="fiche-select">
         <option value="">-- Sélectionne une fiche --</option>
       </select>
 
-      <!-- Contenu dynamique -->
       <h3 id="fiche-titre"></h3>
       <p id="fiche-description"></p>
 
       <h4>✅ Conseils</h4>
       <ul id="fiche-conseils"></ul>
+
+      <h4>🧪 Exemples</h4>
+      <ul id="fiche-exemples"></ul>
+
+      <h4>❌ Ce que ce n’est pas</h4>
+      <ul id="fiche-pas"></ul>
+
+      <h4>🧘 Réactions saines</h4>
+      <ul id="fiche-reactions"></ul>
     </section>
   </main>
 
