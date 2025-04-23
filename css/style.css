@@ -1,0 +1,146 @@
+/* === VCARE STYLE GLOBAL === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f8f7;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+header {
+  background: #d8f3dc;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 2px solid #b7e4c7;
+}
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #2d6a4f;
+}
+header p {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: #40916c;
+}
+header nav {
+  margin-top: 1rem;
+}
+header nav a {
+  margin: 0 0.7rem;
+  color: #1b4332;
+  text-decoration: none;
+  font-weight: bold;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* === ACCUEIL === */
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-buttons {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+.button {
+  background: #95d5b2;
+  color: #1b4332;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+.button:hover {
+  background: #74c69d;
+  transform: scale(1.05);
+}
+.button.urgent {
+  background: #f28482;
+  color: white;
+}
+.quote {
+  font-style: italic;
+  color: #6c757d;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* === PIED DE PAGE === */
+footer {
+  background: #d8f3dc;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #40916c;
+  border-top: 2px solid #b7e4c7;
+}
+footer nav {
+  margin-bottom: 0.5rem;
+}
+footer nav a {
+  margin: 0 0.7rem;
+  color: #2d6a4f;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer nav a:hover {
+  text-decoration: underline;
+}
+
+/* === CHATBOT === */
+.chat-bubble {
+  margin: 0.5rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+.chat-bubble.user {
+  background-color: #d1f5e2;
+  align-self: flex-end;
+}
+.chat-bubble.bot {
+  background-color: #f0e6ff;
+  align-self: flex-start;
+}
+
+/* === MENU BAS FIXE === */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #d8f3dc;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 0;
+  border-top: 2px solid #b7e4c7;
+  z-index: 1000;
+}
+.bottom-menu a {
+  font-size: 1.5rem;
+  color: #2d6a4f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.bottom-menu a:hover {
+  color: #52b788;
+}
+.bottom-menu a.active {
+  color: #40916c;
+}

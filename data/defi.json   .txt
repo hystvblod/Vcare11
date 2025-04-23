@@ -1,0 +1,42 @@
+{
+  "quotidiens": {
+    "joyeux": [
+      "Partage un compliment avec quelqu’un aujourd’hui",
+      "Écris 3 choses qui t’ont rendu·e heureux·se cette semaine"
+    ],
+    "calme": [
+      "Prends 10 minutes pour méditer ou respirer profondément",
+      "Fais une marche lente en silence"
+    ],
+    "triste": [
+      "Regarde une scène drôle ou un souvenir joyeux",
+      "Écris une lettre bienveillante à toi-même"
+    ],
+    "anxieux": [
+      "Fais un scan corporel ou une respiration 4-6-8",
+      "Note tout ce qui te stresse… puis jette le papier"
+    ],
+    "fatigue": [
+      "Fais une sieste ou allonge-toi 10 minutes sans écran",
+      "Écoute un son apaisant ou regarde les nuages"
+    ],
+    "colere": [
+      "Écris ta colère puis froisse le papier",
+      "Fais un effort physique (pompes, marche rapide, etc.)"
+    ],
+    "vide": [
+      "Essaye de ressentir ton corps : pieds au sol, respiration lente",
+      "Écris sans filtre tout ce que tu ressens, même si c’est “rien”"
+    ],
+    "neutre": [
+      "Fais une petite chose que tu aimes (boisson, chanson, etc.)",
+      "Essaie de créer un micro-moment agréable aujourd’hui"
+    ]
+  },
+  "hebdo": [
+    "Faire une chose nouvelle ou inhabituelle cette semaine",
+    "Appeler quelqu’un qu’on aime juste pour parler",
+    "Tenir un journal émotionnel pendant 3 jours",
+    "Planifier un moment rien que pour soi (balade, lecture...)"
+  ]
+}

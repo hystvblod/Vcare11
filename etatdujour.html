@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🌞 État du jour - Vcare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/etatdujour.js"></script>
+  <style>
+    main {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    textarea, select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    button {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 999px;
+      background: #5bb0a7;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #46958d;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <h2>🧠 Comment vous sentez-vous aujourd’hui ?</h2>
+      <select id="humeur-select">
+        <option value="">Choisissez une humeur...</option>
+        <option value="joyeux">😊 Joyeux·se</option>
+        <option value="calme">😌 Calme</option>
+        <option value="triste">😢 Triste</option>
+        <option value="anxieux">😰 Anxieux·se</option>
+        <option value="fatigue">😴 Fatigué·e</option>
+        <option value="colere">😡 En colère</option>
+        <option value="neutre">🌀 Neutre (stable)</option>
+        <option value="vide">🤍 Vide émotionnel</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>🌼 Une chose positive aujourd’hui ?</h2>
+      <textarea id="positive-thought" rows="4" placeholder="Même une petite chose : un sourire, un rayon de soleil, un bon café..."></textarea>
+    </section>
+
+    <section>
+      <h2>💬 Message de VBot</h2>
+      <p id="vbot-message">...</p>
+    </section>
+
+    <section>
+      <h2>🌱 Proposition du jour</h2>
+      <p id="suggestion-jour">...</p>
+    </section>
+
+    <button onclick="saveEtatDuJour()">Valider et enregistrer</button>
+  </main>
+</body>
+</html>

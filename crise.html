@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zone de crise – Vcare</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-crise">
+  <header>
+    <h1>🚨 Zone d’urgence</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="chatbot.html">Chatbot</a>
+      <a href="bienetre.html">Bien-être</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="message-apaisant">
+      <h2>🤍 Respirez… Vous n’êtes pas seul·e.</h2>
+      <p>Cette zone est là pour vous aider à traverser un moment difficile.</p>
+    </section>
+
+    <section class="contacts-urgence">
+      <h3>📞 Contacts d’urgence</h3>
+      <ul>
+        <li><strong>SOS Suicide :</strong> 01 45 39 40 00</li>
+        <li><strong>Samu :</strong> 15</li>
+        <li><strong>Police :</strong> 17</li>
+        <li><strong>Numéro européen :</strong> 112</li>
+        <li><strong>Écoute dépression :</strong> 09 72 39 40 50</li>
+      </ul>
+    </section>
+
+    <section class="contacts-perso">
+      <h3>👥 Personnes importantes</h3>
+      <p>Ajoutez ici les personnes proches à contacter en cas de mal-être.</p>
+      <ul id="liste-proches">
+        <li>Aucun contact enregistré.</li>
+      </ul>
+      <input type="text" id="ajout-contact" placeholder="Nom + numéro ou lien" />
+      <button onclick="ajouterContact()">Ajouter</button>
+    </section>
+
+    <section class="cartes-apaisantes">
+      <h3>🧘 Cartes de réconfort</h3>
+      <p>Afficher des cartes inspirantes pour vous recentrer.</p>
+      <button onclick="afficherCartes()">Voir les cartes</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Vcare – Zone de crise 💜</p>
+  </footer>
+
+  <script>
+    function ajouterContact() {
+      const input = document.getElementById("ajout-contact");
+      const liste = document.getElementById("liste-proches");
+      if (input.value.trim() !== "") {
+        if (liste.children[0].textContent === "Aucun contact enregistré.") {
+          liste.innerHTML = "";
+        }
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        liste.appendChild(li);
+        input.value = "";
+      }
+    }
+
+    function afficherCartes() {
+      alert("Des cartes de réconfort s’afficheront ici dans la prochaine version ✨");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bien-être – Vcare</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-bienetre">
+  <header>
+    <h1>🧘 Espace Bien-être</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="chatbot.html">Chatbot</a>
+      <a href="profil.html">Profil</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="respiration">
+      <h2>🌬️ Respiration guidée</h2>
+      <p>Suivez les instructions pour vous détendre avec la respiration consciente.</p>
+      <div class="breathing-circle" id="breathing-circle">
+        <span id="breathing-text">Inspirez...</span>
+      </div>
+      <button onclick="startBreathing()">Commencer</button>
+    </section>
+
+    <hr />
+
+    <section id="sons">
+      <h2>🎧 Sons apaisants</h2>
+      <p>Choisissez un son relaxant :</p>
+      <select id="son-select">
+        <option value="pluie.mp3">Pluie douce</option>
+        <option value="ocean.mp3">Vagues de l’océan</option>
+        <option value="foret.mp3">Forêt paisible</option>
+      </select>
+      <div class="player-controls">
+        <button onclick="playSound()">▶️ Lecture</button>
+        <button onclick="pauseSound()">⏸️ Pause</button>
+        <label for="volume">Volume :</label>
+        <input type="range" id="volume" min="0" max="1" step="0.01" onchange="adjustVolume(this.value)" />
+      </div>
+      <audio id="audio-player"></audio>
+    </section>
+
+    <hr />
+
+    <section id="detente">
+      <h2>🎈 Mini-jeux détente</h2>
+      <p>Jouez pour vous relaxer. Cliquez sur les bulles pour les éclater !</p>
+      <canvas id="canvasDetente" width="300" height="300"></canvas>
+      <button onclick="startGame('bulles')">Lancer les bulles</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Vcare – Prenez soin de vous 💜</p>
+  </footer>
+
+  <script src="js/respiration.js"></script>
+  <script src="js/sons.js"></script>
+  <script src="js/detente.js"></script>
+</body>
+</html>

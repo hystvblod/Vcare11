@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vcare - Chatbot émotionnel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="chatbot-page">
+
+  <header>
+    <h1>💬 VBot - Ton compagnon bienveillant</h1>
+    <nav>
+      <a href="index.html">🏠 Accueil</a>
+      <a href="profil.html">👤 Profil</a>
+      <a href="bienetre.html">🧘 Bien-être</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="chat-container">
+      <div id="chat-window"></div>
+
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Tu peux me dire ce que tu veux..." autocomplete="off" required />
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </main>
+
+  <nav class="bottom-menu">
+    <a href="index.html">🏠</a>
+    <a href="etatdujour.html">🌞</a>
+    <a href="chatbot.html" class="active">💬</a>
+    <a href="bienetre.html">🧘</a>
+  </nav>
+
+  <footer>
+    <p class="footer-note">Vcare ✦ Ton espace pour aller mieux</p>
+  </footer>
+
+  <!-- Chargement dynamique du bon chatbot -->
+  <script src="js/chatbotloader.js"></script>
+
+  <script>
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('user-input');
+    const windowChat = document.getElementById('chat-window');
+    const prenom = localStorage.getItem('prenom') || "toi";
+    let chatbotResponse = null;
+
+    function appendMessage(from, text) {
+      const msg = document.createElement('div');
+      msg.className = from === "user" ? "chat-bubble user" : "chat-bubble bot";
+      msg.textContent = text;
+      windowChat.appendChild(msg);
+      windowChat.scrollTop = windowChat.scrollHeight;
+    }
+
+    function waitForChatbotAndInit() {
+      if (typeof getChatbotResponse === "function") {
+        chatbotResponse = getChatbotResponse;
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const inputText = input.value.trim();
+          if (inputText === "") return;
+
+          appendMessage("user", inputText);
+          const reply = chatbotResponse(inputText, prenom);
+          setTimeout(() => appendMessage("bot", reply), 400);
+          input.value = "";
+        });
+      } else {
+        setTimeout(waitForChatbotAndInit, 100);
+      }
+    }
+
+    window.addEventListener('load', waitForChatbotAndInit);
+  </script>
+
+  <style>
+    body.chatbot-page {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f8fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #d4e6f1;
+    }
+
+    header nav {
+      margin-top: 0.5rem;
+    }
+
+    header nav a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    #chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    #chat-window {
+      flex: 1;
+      border: 2px solid #a4cce3;
+      border-radius: 10px;
+      padding: 1rem;
+      background: white;
+      overflow-y: auto;
+      max-height: 500px;
+    }
+
+    .chat-bubble {
+      margin: 0.5rem 0;
+      padding: 0.8rem 1rem;
+      border-radius: 20px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .chat-bubble.user {
+      background-color: #d1f5e2;
+      align-self: flex-end;
+    }
+
+    .chat-bubble.bot {
+      background-color: #f0e6ff;
+      align-self: flex-start;
+    }
+
+    #chat-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    #chat-form input {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    #chat-form button {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      background-color: #81c1ff;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #d4e6f1;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .bottom-menu a {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+
+    .bottom-menu a.active {
+      color: #0077c0;
+    }
+  </style>
+</body>
+</html>

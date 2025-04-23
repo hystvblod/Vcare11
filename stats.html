@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statistiques – Vcare</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-stats">
+  <header>
+    <h1>📊 Mes Statistiques</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="chatbot.html">Chatbot</a>
+      <a href="profil.html">Profil</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>📅 Humeurs de la semaine</h2>
+      <canvas id="humeurChart" width="400" height="200"></canvas>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>🕒 Fréquence d’utilisation</h2>
+      <p>Nombre de jours d’utilisation cette semaine : <span id="jours-utilisation">0</span></p>
+      <p>Dernière activité : <span id="derniere-connexion">–</span></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Vcare – Prenez soin de vous 💜</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const jours = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+    const donneesHumeurs = JSON.parse(localStorage.getItem("humeursSemaine")) || [1, 2, 3, 2, 1, 4, 3];
+
+    const ctx = document.getElementById("humeurChart").getContext("2d");
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: jours,
+        datasets: [{
+          label: "Humeur (1=triste → 5=joyeux)",
+          data: donneesHumeurs,
+          backgroundColor: "rgba(100, 150, 255, 0.6)",
+          borderColor: "rgba(50, 100, 200, 1)",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, max: 5 }
+        }
+      }
+    });
+
+    // Statistiques simples
+    const joursUtilisation = donneesHumeurs.filter(h => h > 0).length;
+    const dateDerniere = localStorage.getItem("derniereConnexion");
+
+    document.getElementById("jours-utilisation").textContent = joursUtilisation;
+    document.getElementById("derniere-connexion").textContent = dateDerniere || "Aucune";
+
+    // Mise à jour automatique de la dernière connexion
+    localStorage.setItem("derniereConnexion", new Date().toLocaleDateString());
+  </script>
+</body>
+</html>

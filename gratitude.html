@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gratitude – Vcare</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-gratitude">
+  <header>
+    <h1>🙏 Zone de gratitude</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="chatbot.html">Chatbot</a>
+      <a href="profil.html">Profil</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>💬 Messages anonymes</h2>
+      <div id="gratitude-list" class="message-list">
+        <p>Chargement des messages...</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>✍️ Ajouter un message</h2>
+      <textarea id="gratitude-input" placeholder="Écrivez ici un message positif ou de reconnaissance..."></textarea>
+      <button onclick="addGratitude()">Envoyer 💜</button>
+      <p id="confirmation" style="color: green; display: none;">Merci pour votre message !</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Vcare – Cultivez la gratitude 🌸</p>
+  </footer>
+
+  <script>
+    const list = document.getElementById("gratitude-list");
+    const input = document.getElementById("gratitude-input");
+    const confirmation = document.getElementById("confirmation");
+
+    // Charger les messages
+    function loadGratitude() {
+      const messages = JSON.parse(localStorage.getItem("gratitudeMessages")) || [
+        "Merci à la vie pour ce nouveau jour 🌞",
+        "Gratitude pour mes amis qui me soutiennent 💕",
+        "Aujourd’hui j’ai réussi à prendre soin de moi 🌿"
+      ];
+      list.innerHTML = "";
+      messages.slice().reverse().forEach(msg => {
+        const p = document.createElement("p");
+        p.textContent = "🌟 " + msg;
+        list.appendChild(p);
+      });
+    }
+
+    // Ajouter un nouveau message
+    function addGratitude() {
+      const value = input.value.trim();
+      if (value) {
+        const messages = JSON.parse(localStorage.getItem("gratitudeMessages")) || [];
+        messages.push(value);
+        localStorage.setItem("gratitudeMessages", JSON.stringify(messages));
+        input.value = "";
+        confirmation.style.display = "block";
+        loadGratitude();
+        setTimeout(() => confirmation.style.display = "none", 3000);
+      }
+    }
+
+    loadGratitude();
+  </script>
+</body>
+</html>

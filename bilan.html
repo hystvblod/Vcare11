@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🧭 Bilan hebdomadaire - Vcare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/bilan.js"></script>
+  <style>
+    .bilan-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    .bilan-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .bilan-card h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .bilan-card p, .bilan-card ul {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .bilan-card ul {
+      padding-left: 1.5rem;
+    }
+    button {
+      display: block;
+      margin: 2rem auto;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      background: #5bb0a7;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #46958d;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="bilan-container">
+
+    <section class="bilan-card">
+      <h2>🌤 Vos humeurs de la semaine</h2>
+      <div id="humeurs-chart">Chargement de votre météo émotionnelle...</div>
+    </section>
+
+    <section class="bilan-card">
+      <h2>📔 Journal & souvenirs</h2>
+      <div id="journal-resume">Analyse de vos écrits et moments forts...</div>
+    </section>
+
+    <section class="bilan-card">
+      <h2>📚 Fiches utilisées</h2>
+      <ul id="fiches-liste">
+        <li>Chargement en cours...</li>
+      </ul>
+    </section>
+
+    <section class="bilan-card">
+      <h2>💬 Message de VBot</h2>
+      <p id="vbot-message">Préparation d’un message de soutien personnalisé...</p>
+    </section>
+
+    <section class="bilan-card">
+      <h2>🌱 Pour la semaine à venir</h2>
+      <p id="suggestion-semaine">Chargement d’une intention bienveillante...</p>
+    </section>
+
+    <button onclick="window.location.href='index.html'">← Revenir à l’accueil</button>
+  </main>
+</body>
+</html>

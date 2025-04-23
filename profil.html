@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil – Vcare</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/humeur.js"></script>
+</head>
+<body class="page-profil">
+  <header>
+    <h1>👤 Mon Profil</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="chatbot.html">Chatbot</a>
+      <a href="bienetre.html">Bien-être</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="profil-utilisateur">
+      <h2>💬 Informations personnelles</h2>
+
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" placeholder="Votre prénom" />
+      <button onclick="sauverPrenom()">Enregistrer</button>
+
+      <hr />
+
+      <h3>🎨 Style visuel</h3>
+      <select id="style-select" onchange="changerStyle(this.value)">
+        <option value="style.css">Zen pastel (par défaut)</option>
+        <option value="dark.css">Sombre</option>
+        <option value="minimal.css">Minimal clair</option>
+        <option value="cartoon.css">Cartoon doux</option>
+      </select>
+
+      <hr />
+
+      <h3>🎭 Humeur actuelle</h3>
+      <label for="humeur-du-jour">Comment vous sentez-vous aujourd’hui ?</label>
+      <select id="humeur-du-jour">
+        <option value="">Choisissez une humeur...</option>
+        <option value="joyeux">😊 Joyeux·se</option>
+        <option value="calme">😌 Calme</option>
+        <option value="triste">😢 Triste</option>
+        <option value="anxieux">😰 Anxieux·se</option>
+        <option value="fatigue">😴 Fatigué·e</option>
+        <option value="colere">😡 En colère</option>
+        <option value="neutre">🌀 Neutre (stable)</option>
+        <option value="vide">🤍 Vide émotionnel</option>
+      </select>
+      <p id="humeur-message" style="margin-top: 1rem; font-style: italic; color: #444;"></p>
+
+      <hr />
+
+      <h3>⚙️ Préférences</h3>
+      <label>
+        <input type="checkbox" id="autoHumeur" />
+        Afficher la page “État du jour” au lancement
+      </label><br />
+      <label>
+        <input type="checkbox" id="notificationsBienveillantes" />
+        Activer les notifications bienveillantes
+      </label><br />
+      <button onclick="sauverPreferences()">Sauvegarder les préférences</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Vcare – Prenez soin de vous 💜</p>
+  </footer>
+
+  <script>
+    // Chargement initial
+    window.addEventListener("load", () => {
+      document.getElementById("prenom").value = localStorage.getItem("prenom") || "";
+      document.getElementById("autoHumeur").checked = localStorage.getItem("autoHumeur") === "true";
+      document.getElementById("notificationsBienveillantes").checked = localStorage.getItem("notifications") === "true";
+    });
+
+    function sauverPrenom() {
+      const prenom = document.getElementById("prenom").value;
+      localStorage.setItem("prenom", prenom);
+      alert("Prénom enregistré !");
+    }
+
+    function sauverPreferences() {
+      const humeur = document.getElementById("autoHumeur").checked;
+      const notif = document.getElementById("notificationsBienveillantes").checked;
+      localStorage.setItem("autoHumeur", humeur);
+      localStorage.setItem("notifications", notif);
+      alert("Préférences enregistrées !");
+    }
+
+    function changerStyle(nouveauStyle) {
+      const link = document.querySelector('link[rel="stylesheet"]');
+      link.setAttribute("href", "css/" + nouveauStyle);
+    }
+  </script>
+</body>
+</html>
