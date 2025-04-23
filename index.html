@@ -14,6 +14,26 @@
   </header>
 
   <main>
+    <!-- Section de l'humeur -->
+    <section class="mood-section">
+      <h2>Sélectionne ton humeur</h2>
+      <div class="mood-icons">
+        <div class="mood-icon" id="happy" title="Heureux" onclick="selectMood('happy')">
+          <div class="icon happy"></div>
+        </div>
+        <div class="mood-icon" id="sad" title="Triste" onclick="selectMood('sad')">
+          <div class="icon sad"></div>
+        </div>
+        <div class="mood-icon" id="stressed" title="Stressé" onclick="selectMood('stressed')">
+          <div class="icon stressed"></div>
+        </div>
+        <div class="mood-icon" id="neutral" title="Neutre" onclick="selectMood('neutral')">
+          <div class="icon neutral"></div>
+        </div>
+      </div>
+      <p id="selectedMood">Aucune humeur sélectionnée</p>
+    </section>
+
     <section class="home-buttons">
       <a href="etatdujour.html" class="button">💬 Mon état du jour</a>
       <a href="chatbot.html" class="button">🧠 Parler à VBot</a>
@@ -34,5 +54,18 @@
     <a href="bilan.html">📊</a>
     <a href="stats.html">📈</a>
   </nav>
+
+  <!-- Script pour la gestion de l'humeur -->
+  <script>
+    function selectMood(mood) {
+      const moodText = {
+        happy: "Heureux",
+        sad: "Triste",
+        stressed: "Stressé",
+        neutral: "Neutre"
+      };
+      document.getElementById("selectedMood").innerText = `Ton humeur : ${moodText[mood]}`;
+    }
+  </script>
 </body>
 </html>
