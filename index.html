@@ -30,6 +30,26 @@
         <div class="mood-icon" id="neutral" title="Neutre" onclick="selectMood('neutral')">
           <div class="icon neutral"></div>
         </div>
+        <div class="mood-icon" id="anxious" title="Anxieux" onclick="selectMood('anxious')">
+          <div class="icon anxious"></div>
+        </div>
+        <div class="mood-icon" id="tired" title="Fatigué" onclick="selectMood('tired')">
+          <div class="icon tired"></div>
+        </div>
+        <div class="mood-icon" id="angry" title="En colère" onclick="selectMood('angry')">
+          <div class="icon angry"></div>
+        </div>
+        <!-- Icône vide pour "Calme" -->
+        <div class="mood-icon" id="calm" title="Calme" onclick="selectMood('calm')">
+          <div class="icon calm"></div>
+        </div>
+        <!-- Nouvelles humeurs : "Dépassé" et "Déprimé" -->
+        <div class="mood-icon" id="overwhelmed" title="Dépassé" onclick="selectMood('overwhelmed')">
+          <div class="icon overwhelmed"></div>
+        </div>
+        <div class="mood-icon" id="depressed" title="Déprimé" onclick="selectMood('depressed')">
+          <div class="icon depressed"></div>
+        </div>
       </div>
       <p id="selectedMood">Aucune humeur sélectionnée</p>
     </section>
@@ -62,7 +82,13 @@
         happy: "Heureux",
         sad: "Triste",
         stressed: "Stressé",
-        neutral: "Neutre"
+        neutral: "Neutre",
+        anxious: "Anxieux",
+        tired: "Fatigué",
+        angry: "En colère",
+        calm: "Calme",
+        overwhelmed: "Dépassé",
+        depressed: "Déprimé"
       };
       document.getElementById("selectedMood").innerText = `Ton humeur : ${moodText[mood]}`;
     }
