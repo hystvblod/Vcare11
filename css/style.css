@@ -123,13 +123,6 @@ main {
 .neutral {
   background-color: gray;
 }
-
-/* Icône vide pour "Calme" */
-.calms {
-  background-color: transparent;  /* Vide */
-  border: 2px solid #ddd;  /* Optionnel : bordure légère pour la rendre visible */
-}
-
 .anxious {
   background-color: orange;
 }
@@ -140,10 +133,16 @@ main {
   background-color: darkred;
 }
 
-/* Nouvelles humeurs : "Dépassé" et "Déprimé" */
+/* Icône pour "Vide" - changez cette partie pour exprimer "Vide" */
+.empty {
+  background-color: #f0f0f0;  /* Couleur neutre pour "Vide" */
+  border: 2px solid #ddd;     /* Optionnel : bordure légère pour la rendre visible */
+}
+
 .overwhelmed {
   background-color: #ff8c00; /* Couleur pour "Dépassé" */
 }
+
 .depressed {
   background-color: #8b0000; /* Couleur pour "Déprimé" */
 }
