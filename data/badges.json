@@ -1,0 +1,42 @@
+[
+  {
+    "nom": "Courage",
+    "description": "Tu as affronté une situation difficile avec bravoure."
+  },
+  {
+    "nom": "Espoir",
+    "description": "Tu as trouvé de la lumière même dans l'obscurité."
+  },
+  {
+    "nom": "Résilience",
+    "description": "Tu as continué malgré les obstacles."
+  },
+  {
+    "nom": "Sérénité",
+    "description": "Tu as trouvé un moment de paix intérieure."
+  },
+  {
+    "nom": "Gratitude",
+    "description": "Tu as exprimé de la reconnaissance aujourd'hui."
+  },
+  {
+    "nom": "Persévérance",
+    "description": "Tu n’as pas abandonné même quand c’était difficile."
+  },
+  {
+    "nom": "Confiance",
+    "description": "Tu as cru en toi face au doute."
+  },
+  {
+    "nom": "Bienveillance",
+    "description": "Tu as pris soin de toi ou de quelqu'un aujourd'hui."
+  },
+  {
+    "nom": "Créativité",
+    "description": "Tu as fait preuve d'imagination aujourd'hui."
+  },
+  {
+    "nom": "Joie",
+    "description": "Tu as capturé un vrai moment de bonheur."
+  }
+]

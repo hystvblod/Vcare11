@@ -64,6 +64,21 @@
         Activer les notifications bienveillantes
       </label><br />
       <button onclick="sauverPreferences()">Sauvegarder les préférences</button>
+
+      <hr />
+
+      <h3>🎖️ Mes Badges</h3>
+      <ul id="liste-badges">
+        <!-- Les badges gagnés apparaîtront ici -->
+      </ul>
+
+      <hr />
+
+      <h3>📝 Mes Souvenirs Positifs</h3>
+      <ul id="liste-souvenirs">
+        <!-- Les souvenirs enregistrés apparaîtront ici -->
+      </ul>
+
     </section>
   </main>
 
@@ -77,6 +92,8 @@
       document.getElementById("prenom").value = localStorage.getItem("prenom") || "";
       document.getElementById("autoHumeur").checked = localStorage.getItem("autoHumeur") === "true";
       document.getElementById("notificationsBienveillantes").checked = localStorage.getItem("notifications") === "true";
+      afficherBadges();
+      afficherSouvenirs();
     });
 
     function sauverPrenom() {
@@ -96,6 +113,40 @@
     function changerStyle(nouveauStyle) {
       const link = document.querySelector('link[rel="stylesheet"]');
       link.setAttribute("href", "css/" + nouveauStyle);
+    }
+
+    function afficherBadges() {
+      const badges = JSON.parse(localStorage.getItem("badgesGagnes")) || [];
+      const ulBadges = document.getElementById("liste-badges");
+      ulBadges.innerHTML = "";
+
+      if (badges.length === 0) {
+        ulBadges.innerHTML = "<li>Aucun badge encore gagné.</li>";
+        return;
+      }
+
+      badges.forEach((badge) => {
+        const li = document.createElement("li");
+        li.textContent = "🎖️ " + badge;
+        ulBadges.appendChild(li);
+      });
+    }
+
+    function afficherSouvenirs() {
+      const souvenirs = JSON.parse(localStorage.getItem("souvenirs")) || [];
+      const ulSouvenirs = document.getElementById("liste-souvenirs");
+      ulSouvenirs.innerHTML = "";
+
+      if (souvenirs.length === 0) {
+        ulSouvenirs.innerHTML = "<li>Aucun souvenir enregistré.</li>";
+        return;
+      }
+
+      souvenirs.forEach((souvenir) => {
+        const li = document.createElement("li");
+        li.textContent = `📝 ${souvenir.texte} (${souvenir.date})`;
+        ulSouvenirs.appendChild(li);
+      });
     }
   </script>
 </body>

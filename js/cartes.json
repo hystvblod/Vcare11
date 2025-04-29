@@ -1,0 +1,45 @@
+// cartes.js
+
+async function afficherCarte() {
+  try {
+    const response = await fetch("data/cartes.json");
+    const cartes = await response.json();
+
+    const index = Math.floor(Math.random() * cartes.length);
+    const message = cartes[index].message;
+
+    const carteDiv = document.createElement("div");
+    carteDiv.className = "carte-reconfort";
+    carteDiv.textContent = message;
+
+    carteDiv.style.position = "fixed";
+    carteDiv.style.left = "50%";
+    carteDiv.style.top = "50%";
+    carteDiv.style.transform = "translate(-50%, -50%)";
+    carteDiv.style.background = "rgba(255,255,255,0.95)";
+    carteDiv.style.border = "2px solid #5bb0a7";
+    carteDiv.style.borderRadius = "1.5rem";
+    carteDiv.style.padding = "2rem";
+    carteDiv.style.maxWidth = "90%";
+    carteDiv.style.fontSize = "1.2rem";
+    carteDiv.style.textAlign = "center";
+    carteDiv.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)";
+    carteDiv.style.zIndex = "9999";
+    carteDiv.style.opacity = "0";
+    carteDiv.style.transition = "opacity 0.5s ease";
+
+    document.body.appendChild(carteDiv);
+
+    setTimeout(() => {
+      carteDiv.style.opacity = "1";
+    }, 100);
+
+    setTimeout(() => {
+      carteDiv.style.opacity = "0";
+      setTimeout(() => carteDiv.remove(), 500);
+    }, 5000);
+
+  } catch (error) {
+    console.error("Erreur de chargement des cartes émotionnelles :", error);
+  }
+}
