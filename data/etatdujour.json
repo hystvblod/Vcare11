@@ -1,0 +1,34 @@
+[
+  {
+    "humeur": "joyeux",
+    "message": "Garde cette belle énergie aujourd’hui ! 🌞"
+  },
+  {
+    "humeur": "calme",
+    "message": "La sérénité est précieuse, cultive-la. 🧘"
+  },
+  {
+    "humeur": "triste",
+    "message": "C’est normal d’avoir des moments de tristesse. Tu n’es pas seul·e. 🤍"
+  },
+  {
+    "humeur": "anxieux",
+    "message": "Respire profondément, tout ne doit pas être réglé d'un coup. 🌿"
+  },
+  {
+    "humeur": "fatigue",
+    "message": "Accorde-toi du repos sans culpabiliser. 🛌"
+  },
+  {
+    "humeur": "colere",
+    "message": "Respirer avant d'agir peut tout changer. 🛡️"
+  },
+  {
+    "humeur": "neutre",
+    "message": "Être stable est aussi une victoire. 🤝"
+  },
+  {
+    "humeur": "vide",
+    "message": "Même dans le vide, tu existes et tu comptes. 🌌"
+  }
+]
